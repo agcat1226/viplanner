@@ -1,3 +1,44 @@
+Metadata-Version: 2.4
+Name: viplanner
+Version: 0.2.0
+Summary: VIPlanner: Modular Visual Imperative Planning Framework
+Author-email: Pascal Roth <rothpa@ethz.ch>
+License: BSD-3-Clause
+Project-URL: Homepage, https://github.com/leggedrobotics/viplanner
+Project-URL: Repository, https://github.com/leggedrobotics/viplanner
+Keywords: robotics,planning,deep-learning,navigation
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: torch>=2.10.0
+Requires-Dist: torchvision>=0.11.0
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: opencv-python>=4.5.0
+Requires-Dist: pillow>=8.0.0
+Requires-Dist: scikit-image>=0.18.0
+Requires-Dist: scipy>=1.7.0
+Requires-Dist: tqdm>=4.60.0
+Requires-Dist: pyyaml>=5.4.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.9; extra == "dev"
+Requires-Dist: mypy>=0.900; extra == "dev"
+Provides-Extra: logging
+Requires-Dist: wandb>=0.12.0; extra == "logging"
+Provides-Extra: full
+Requires-Dist: wandb>=0.12.0; extra == "full"
+Requires-Dist: open3d>=0.13.0; extra == "full"
+Requires-Dist: networkx>=2.6.0; extra == "full"
+Requires-Dist: pypose>=0.3.0; extra == "full"
+
 # VIPlanner - Modular Training Framework
 
 Refactored VIPlanner training code with a modular architecture for better maintainability and extensibility.

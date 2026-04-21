@@ -1,53 +1,71 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "viplanner"
-version = "0.1.0"
-description = "Visual Imperative Planner for Legged Robots"
-authors = [{name = "Pascal Roth", email = "rothpa@ethz.ch"}]
-license = {file = "LICENSE.txt"}
+version = "0.2.0"
+description = "VIPlanner: Modular Visual Imperative Planning Framework"
 readme = "README.md"
-requires-python = ">=3.7"
-keywords = ["robotics", "planning", "legged-robots"]
+requires-python = ">=3.8"
+license = {text = "BSD-3-Clause"}
+authors = [
+    {name = "Pascal Roth", email = "rothpa@ethz.ch"},
+]
+keywords = ["robotics", "planning", "deep-learning", "navigation"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: BSD License",
-    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
+
 dependencies = [
-    "torch",
-    "torchvision",
-    "PyYAML==6.0",
-    "tqdm",
-    "matplotlib",
-    "networkx",
-    "scipy",
-    "open3d==0.17.0",
-    "wandb==0.14.0",
-    "opencv-python-headless",
+    "torch>=2.10.0",
+    "torchvision>=0.11.0",
+    "numpy>=1.20.0",
+    "opencv-python>=4.5.0",
+    "pillow>=8.0.0",
+    "scikit-image>=0.18.0",
+    "scipy>=1.7.0",
+    "tqdm>=4.60.0",
+    "pyyaml>=5.4.0",
 ]
 
 [project.optional-dependencies]
-inference = [
-    "mmcv==2.0.0",
-    "mmengine",
-    "mmdet",
+dev = [
+    "pytest>=6.0",
+    "black>=21.0",
+    "flake8>=3.9",
+    "mypy>=0.900",
 ]
-standard = [
-    "pypose",
+logging = [
+    "wandb>=0.12.0",
 ]
-jetson = [
-    "torch==1.11",
+full = [
+    "wandb>=0.12.0",
+    "open3d>=0.13.0",
+    "networkx>=2.6.0",
+    "pypose>=0.3.0",
 ]
 
 [project.urls]
-homepage = "https://github.com/pascal-roth/viplanner"
-repository = "https://github.com/pascal-roth/viplanner.git"
+Homepage = "https://github.com/leggedrobotics/viplanner"
+Repository = "https://github.com/leggedrobotics/viplanner"
 
-[tool.setuptools.packages]
-find = {}
+[tool.setuptools]
+packages = ["viplanner"]
+
+[tool.black]
+line-length = 120
+target-version = ['py38', 'py39', 'py310']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
